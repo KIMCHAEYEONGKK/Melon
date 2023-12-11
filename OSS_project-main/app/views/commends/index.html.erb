@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Commends</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Commend</th>
+      <th>User</th>
+      <th>Album</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @commends.each do |commend| %>
+      <tr>
+        <td><%= commend.commend %></td>
+        <td><%= commend.user %></td>
+        <td><%= commend.album %></td>
+        <td><%= link_to 'Show', commend %></td>
+        <td><%= link_to 'Edit', edit_commend_path(commend) %></td>
+        <td><%= link_to 'Destroy', commend, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Commend', new_commend_path %>

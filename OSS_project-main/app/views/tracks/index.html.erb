@@ -1,0 +1,231 @@
+<p id="notice"><%= notice %></p>
+
+<div class = "atist_100" style = "margin: 0 auto; background: 0;">
+	<div style = "padding: 0 20px; position: relative; width: 1008px; margin: 0 auto;">
+		<div class = "contents" style ="position: relative; z-index: 10; display: block; width: 1008px; min-height: 800px; padding: 29px 0 88px; zoom: 1;font-family = 'Malgun Gothic'">
+			<div class ="page_header" style = "position: relative; margin-bottom:8px">
+				<h2 style = "height:40px; line-height:40px; font-size:26px;">
+					TOP100
+				</h2>
+			</div>
+			<div class= "multi_row" style="position: relative;">
+			<div class = "calender" style="position: absolute; min-height:34px; text-algin:center; z-index: 9; margin-bottom:32px; margin-top: 12px !important;">
+				<span class ="yyyymmdd" style = "line-height: 34px; color: #575757; font-size: 26px; vertical-align:middle; margin-left:460px;">
+					<span><%= Time.new.strftime("%Y.%m.%d") %></span>
+				</span>
+			</div>
+			
+		</div>
+			<div class="wrap_btn" style="margin-bottom:10px; margin-top:80px;">
+				<button type = "button" class = " button_rbox" style ="height: 30px;line-height: 28px;padding: 0 16px;border: 1px solid #b2b2b2;border-radius: 100px;color: #606060;font-size: 12px;visibility: visible;overflow: hidden; margin-left: 0;">
+					<span style="width: 13px; height: 11px; background-position: -203px 0; top: 1px; position:relative; margin-right:4px; vertical-align:baseline;">
+						<span style="margin-left:3px;">셔플듣기</span>
+					</span>
+					
+				</button>
+				<button type = "button" class = " button_rbox" style ="height: 30px;line-height: 28px;padding: 0 16px;border: 1px solid #b2b2b2;border-radius: 100px;color: #606060;font-size: 12px;visibility: visible;overflow: hidden;margin-left:5px;">
+					<span style="width: 13px; height: 11px; background-position: -203px 0; top: 1px; position:relative; margin-right:4px; vertical-align:baseline;">
+						<span style="margin-left:3px;">전체듣기</span>
+					</span>
+					
+				</button>
+				<button type = "button" class = " button_rbox" style ="height: 30px;line-height: 28px;padding: 0 16px;border: 1px solid #b2b2b2;border-radius: 100px;color: #606060;font-size: 12px;visibility: visible;overflow: hidden;margin-left:5px;">
+					<span style="width: 13px; height: 11px; background-position: -203px 0; top: 1px; position:relative; margin-right:4px; vertical-align:baseline;">
+						<span style="margin-left:3px;"> 듣기</span>
+					</span>
+					
+				</button>
+				<button type = "button" class = " button_rbox" style ="height: 30px;line-height: 28px;padding: 0 16px;border: 1px solid #b2b2b2;border-radius: 100px;color: #606060;font-size: 12px;visibility: visible;overflow: hidden;margin-left:5px;">
+					<span style="width: 13px; height: 11px; background-position: -203px 0; top: 1px; position:relative; margin-right:4px; vertical-align:baseline;">
+						<span style="margin-left:3px;">담기</span>
+					</span>
+					
+				</button>
+				<button type = "button" class = " button_rbox" style ="height: 30px;line-height: 28px;padding: 0 16px;border: 1px solid #b2b2b2;border-radius: 100px;color: #606060;font-size: 12px;visibility: visible;overflow: hidden;margin-left:5px;">
+					<span style="width: 13px; height: 11px; background-position: -203px 0; top: 1px; position:relative; margin-right:4px; vertical-align:baseline;">
+						<span style="margin-left:3px;">다운</span>
+					</span>
+					
+				</button>
+				<button type = "button" class = " button_rbox" style ="height: 30px;line-height: 28px;padding: 0 16px;border: 1px solid #b2b2b2;border-radius: 100px;color: #606060;font-size: 12px;visibility: visible;overflow: hidden;margin-left:5px;">
+					<span style="width: 13px; height: 11px; background-position: -203px 0; top: 1px; position:relative; margin-right:4px; vertical-align:baseline;">
+						<span style="margin-left:3px;">FLAC</span>
+					</span>
+					
+				</button>
+				<button type = "button" class = " button_rbox" style ="height: 30px;line-height: 28px;padding: 0 16px;border: 1px solid #b2b2b2;border-radius: 100px;color: #606060;font-size: 12px;visibility: visible;overflow: hidden;margin-left:5px;">
+					<span style="width: 13px; height: 11px; background-position: -203px 0; top: 1px; position:relative; margin-right:4px; vertical-align:baseline;">
+						<span style="margin-left:3px;">선물</span>
+					</span>
+					
+				</button>
+			</div>
+			<table style =" width:100%; border-collapse: collapse; border-spacing:0;" border="1">
+				<thead>
+					<tr>
+						<th style="width:15px;height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align:left; vertical-align:middle; ">
+							<div class="wrap t_right" style = "padding-top:2px; text-align:right;">
+								<input type="checkbox" style= "margin:0;">
+							</div>
+						</th>
+						<th style = "width:62px;  height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px;">
+								<span style="display: inline-block; width:32px; padding: 0 18px 0 12px;">순위</span>
+							</div>
+						</th>
+						<th style = "width:50px; height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px;position: absolute;top: -5000em;left: 0;width: 0;height: 0;font-size: 0;line-height: 0;overflow: hidden;">
+								순위등락
+							</div>
+						</th>
+						<th style = "width:60px; height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px;position: absolute;top: -5000em;left: 0;width: 0;height: 0;font-size: 0;line-height: 0;overflow: hidden;">
+								앨범이미지
+							</div>
+						</th>
+						<th style = "width:24px; height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div class ="none"style="padding-top: 2px;position: absolute;top: -5000em;left: 0;width: 0;height: 0;font-size: 0;line-height: 0;overflow: hidden;">
+								곡상세가기
+							</div>
+						</th>
+						<th style = "width:282px;height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px; padding-left: 12px;">
+								곡정보
+							</div>
+						</th>
+						<th style = "width:190px;height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px; padding-left: 12px;">
+								앨범
+							</div>
+						</th>
+						<th style = "width:111px; height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px; padding-left: 30px;">
+								좋아요
+							</div>
+						</th>
+						<th style = "width:58px; height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px; text-align:center;">
+								듣기
+							</div>
+						</th>
+						<th style = "width:52px; height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px; text-align:center;">
+								담기
+							</div>
+						</th>
+						<th style = "width:52px; height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px; text-align:center;">
+								다운
+							</div>
+						</th>
+						<th style = "width:52px; height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px; text-align:center;">
+								뮤비
+							</div>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% a = 1 %>
+					  <% @tracks.each do |track| %>
+					<% if a == 11 %>
+						<%break %>
+					<%end %>
+					<tr style="display: table-row;">
+						<td style="height:84px; border-bottom:1px solid #f2f2f2; text-algin:left; vertical-algin:middle;">
+							<div style = "text-algin: right; margin-top:31px;">
+								
+								<input type="checkbox" style="border: initial;background-color: initial;cursor: default;appearance: auto;box-sizing: border-box; vertical-algin:middle;" >
+								
+							</div>
+						</td>
+						<td style="text-align: left; vertical-align: middle; height:84px; border-bottom:1px solid #f2f2f2;">
+							<div class="atist_id" style="text-align:center;">
+								<span style="display: inline-block;padding-top: 5px;color: #333;font-size: 18px;width: 32px;padding: 0 18px 0 12px;" ><%= a %></span>
+								<% a = a +1%>
+								
+							</div>
+						</td>
+						<!-- 순위 변동 -->
+						<td style="border-bottom:1px solid #f2f2f2; text-algin:left; vertical-algin:middle;">
+							<div class="wrap">
+								<span style="width: 14px;height: 10px;background-position: 0 -15px;"></span>
+							</div>
+						</td>
+						<td style="border-bottom:1px solid #f2f2f2; text-algin:left; vertical-algin:middle;">
+							<div class="wrap">
+								 <img style="width: 60px;aspect-ratio: auto 60 / 60;height: 60px;margin-top:10px; " src= "<%= track.album.album_link%>">
+							</div>
+						</td>
+						<td style="border-bottom:1px solid #f2f2f2; text-algin:left; vertical-algin:middle;">
+							<span style="width: 12px;background-position: -286px -30px;background-image: url(//cdnimg.melon.co.kr/resource/image/web/common/button_icons_sprite_20200521.png)-286px -30px;"> </span>
+						</td>
+						<td style="border-bottom:1px solid #f2f2f2;vertical-align: middle;">
+							<div class="wrap" style="text-algin:left;">
+								<div class="wrap_song_info" style="display: inline-block;width: 100%;margin-left: 12px;vertical-align: middle;">
+									<div class="ellipsis" style="display: inline-block;padding-right: 1px;vertical-align: middle;white-space: nowrap;text-overflow: ellipsis;word-wrap: normal;">
+										<span><%= link_to track.title, track_path(track.id) %></span>
+									</div>
+									<br>
+									<div style="max-width: 220px;">
+
+										<span style="color: #969696; font-size: 12px;"><%= link_to track.album.artist.activity_name, artist_path(track.album.artist.id) %></span>
+									</div>
+								</div>	
+							</div>
+						</td>
+						<td style="border-bottom:1px solid #f2f2f2;vertical-align: middle;">
+							<div style="display: inline-block;width: 100%;margin-left: 12px;vertical-align: middle;">
+								<div style="max-width:170px;display: inline-block;padding-right: 1px;vertical-align: middle;white-space: nowrap;text-overflow: ellipsis;word-wrap: normal;overflow: hidden;">
+									<span style="color: #969696;font-size: 14px;"><%= link_to track.album.title, album_path(track.album.id) %></span>
+								</div>
+							</div>
+						</td>
+						<td style="border-bottom:1px solid #f2f2f2;vertical-align: middle;">
+							<div class="wrap">
+								<button style="height: 14px;visibility: visible;overflow: hidden; margin-left:18px;">
+									<span style="display: inline-block;position: relative;top: 1px;width: 14px;height: 12px;background: url(//cdnimg.melon.co.kr/resource/image/web/common/bullet_icons_sprite_20201112.png) no-repeat -69px -15px;vertical-align: top;line-height: 0;font-size: 0; overflow: hidden;"></span>
+									<span style="color: #888;line-height: 14px;font-size: 12px;letter-spacing: 0;vertical-align: top;"><%= track.recommend %></span>
+								</button>
+								
+							</div>
+						</td>
+						<td style="border-bottom: 1px solid #f2f2f2;text-align: left;vertical-align: middle;">
+							<div style="text-align:center;">
+								<%= audio_tag track.track_play, controls: "controls" , class: "my_audio",  style: "width: 19px;height: 28px;"%>
+							</div>
+						</td>
+						<td style="border-bottom: 1px solid #f2f2f2;text-align: left;vertical-align: middle;">
+							<div style="text-align:center;">
+								<%if user_signed_in? %> 
+								<%= button_to "+" , play_lists_path(play_list: {user_id: current_user.id, track_id: track.id} ,style:"width: 19px;height: 28px;background-position: -45px -30px;") %>
+								<% else %>
+								<button type="button" style="width: 19px;height: 28px;background-position: -45px -30px;background-position-y: -58px;background-image: url(//cdnimg.melon.co.kr/resource/image/web/common/button_icons_sprite_20200521.png);">
+								</button>
+								<%end%>
+							</div>
+						</td>
+						<td style="border-bottom: 1px solid #f2f2f2;text-align: left;vertical-align: middle;">
+							<div style="text-align:center;">
+								<button type="button" style="width: 21px;height: 24px;background-position: -98px -30px;background-image: url(//cdnimg.melon.co.kr/resource/image/web/common/button_icons_sprite_20200521.png);background-position-y: -58px;">
+								</button>
+							</div>
+						</td>
+						<td style="border-bottom: 1px solid #f2f2f2;text-align: left;vertical-align: middle;">
+							<div style="text-align:center;">
+								<button type="button" style="width: 24px;height: 28px;background-position: -152px -30px;background-position-y: -58px;background-image: url(//cdnimg.melon.co.kr/resource/image/web/common/button_icons_sprite_20200521.png);">
+								</button>
+							</div>
+						</td>
+					</tr>
+					  
+				</tbody>
+				<%end%>
+			</table>
+		</div>
+		
+	</div>
+	
+</div>
+
+<br>

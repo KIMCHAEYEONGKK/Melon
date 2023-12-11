@@ -1,0 +1,85 @@
+<%= form_with(model: artist, local: true) do |form| %>
+  <% if artist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
+
+      <ul>
+      <% artist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :agency %>
+    <%= form.text_field :agency %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nationality %>
+    <%= form.text_field :nationality %>
+  </div>
+
+  <div class="field">
+    <%= form.label :activity_name %>
+    <%= form.text_field :activity_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :real_name %>
+    <%= form.text_field :real_name %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :sex %>
+    <%= form.text_field :sex %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :activity_type %>
+    <%= form.text_area :activity_type %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :nickname %>
+    <%= form.text_area :nickname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :intro %>
+    <%= form.text_area :intro %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :award_history %>
+    <%= form.text_area :award_history %>
+  </div>
+
+  <div class="field">
+	  <p>프로필 링크</p>
+    <% form.label :link %>
+    <%= form.text_area :link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :genre %>
+    <%= form.text_area :genre %>
+  </div>
+
+  
+
+  <div class="field">
+    <%= form.label :debut_day %>
+	<%= form.text_field :debut_day %>
+</div>
+
+  <div class="field">
+    <%= form.label :birth_day %>
+	  <%= form.text_field :birth_day %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

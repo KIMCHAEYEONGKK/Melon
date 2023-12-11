@@ -1,0 +1,134 @@
+<p id="notice"><%= notice %></p>
+<div class = "cont_wrap" style="margin:0 auto; background:0; zoom:1;">
+	<div class = "fold" style = "padding: 0 20px; position:relative; width:1008px; margin:0 auto;">
+		<div class = "cont" style = "position; relative; z-index:10; display:block; width:1008px; min-height:800px; padding:29px 0 88px; zoom:1;">
+<h2 style="color: #1a1a1a; font-weight: bold;font-size: 24px;line-height: 30px; font-family:'Malgun Gothic'; padding-bottom:25px;">
+	아티스트 채널
+			</h2>
+	<div class= "cont" style = "border: 1px solid #bbbbbb; border-top: 2px solid #808080; height:270px; margin:0; padding:0; display: block; vertical-align: baseline;">
+		<div class="atisit_img" style="position:relative; float:left; width:208px; padding:29px 20px 45px;">
+			<img src="<%= @artist.link %>" style = "width: 208px; height: 208px;">	
+		</div>
+	
+	<div class="artist_Information" style="float:left; width:440px; margin-left:22px; margin-top:29px;">
+		<p style="leter-spacing: -1px;color: #1a1a1a; font-family:'Malgun Gothic'; font-weight: bold;font-size: 24px;line-height: 30px;">
+			<%= @artist.activity_name %>
+			<span style = "font-size:16px; font-family:'Malgun Gothic';"><%= @artist.real_name %></span>
+		</p>
+		<dl class = "atist_info" style = "margin-top:19px; display:block;">
+			<dt style="clear: left;float: left;width: 70px;padding-left: 2px;color: #666;font-size: 12px;line-height: 20px;">데뷔</dt>
+
+	
+			<dd style = "loat: left;width: 368px;color: #1a1a1a;font-size: 12px;line-height: 20px;font-family: 'Malgun Gothic';">
+			<span style="display: inline-block;"><%= @artist.debut_day %></span>
+			</dd>
+			<dt style="clear: left;float: left;width: 70px;padding-left: 2px;color: #666;font-size: 12px;line-height: 20px;">생일</dt>
+			<dd style = "loat: left;width: 368px;color: #1a1a1a;font-size: 12px;line-height: 20px;font-family: 'Malgun Gothic';">
+			<span style="display: inline-block;"><%= @artist.birth_day %></span>
+			</dd>
+			<dt style="clear: left;float: left;width: 70px;padding-left: 2px;color: #666;font-size: 12px;line-height: 20px;">활동유형</dt>
+			<dd style = "loat: left;width: 368px;color: #1a1a1a;font-size: 12px;line-height: 20px;font-family: 'Malgun Gothic';">
+			<span style="display: inline-block;"><%= @artist.activity_type %></span>
+			</dd>
+			<dt style="clear: left;float: left;width: 70px;padding-left: 2px;color: #666;font-size: 12px;line-height: 20px;">소속사</dt>
+			<dd style = "loat: left;width: 368px;color: #1a1a1a;font-size: 12px;line-height: 20px;font-family: 'Malgun Gothic';">
+			<span style="display: inline-block;"><%= @artist.agency %></span>
+			</dd>
+			<dt style="clear: left;float: left;width: 70px;padding-left: 2px;color: #666;font-size: 12px;line-height: 20px;">수상이력</dt>
+			<dd style = "float: left; max-width: 315px;color: #1a1a1a;font-size: 12px;line-height: 20px;font-family: 'Malgun Gothic';">
+			<span style="display:inline-block; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; width:200px;"><%= @artist.award_history %></span>
+			</dd>
+			<a herf="@id/atist_infor" style="display:inline-block; margin-left:10px;">
+				<span class = "btn"style ="display: inline;color: #666;font-size: 11px;line-height: 1.2em;letter-spacing: -1px;">더보기</span>
+			</a>
+		</dl>
+		<dl class="atist_sns" style="margin-top:11px; zoom:1; display:block;">
+			<a class="btn" href="">
+			<dt style="clear: left;float: left;width: 90px;padding-left: 2px;color: #1a1a1a;font-size: 12px;line-height: 20px;font-family: 'Malgun Gothic';"> <%= link_to "수록곡으로가기",artists_show_track_path(@artist.id)%></dt>
+			</a>
+		</dl>
+			</div>
+			</div>
+			<div class="wrap_tab_atists" style="font-family: 'Malgun Gothic'; ">
+				<ul style="width: 1008px;margin-top: 15px;border-top: 2px solid #838383;border-bottom: 1px solid #dbdbdb;background: #eaefeb;list-style: none;height:34px;">
+					<li style="float: left;width: 25%; border-right: 1px solid #dbdbdb; height: 34px;">
+						<span id = "atist_infor"style ="display: block;position: relative;padding: 10px 0 7px 0px;color: #1b1b1b;text-align: center;">
+						<span style ="color: #1b1b1b; ">
+							<span style = "text-align: center; top: 9px; width: 20px; height: 20px;"><%= link_to "상세 정보", artist_path(@artist.id)%></span>
+							</span>
+						</span>
+					</li>
+					<li style=" float: left;width: 25%; border-right: 1px solid #dbdbdb; height: 34px;">
+						<span href = "" style ="display: block;position: relative;padding: 10px 0 7px 0px;color: #1b1b1b;text-align: center;">
+						<span style ="color: #1b1b1b; text-align: center;">
+							<span style = "top: 9px; width: 20px; height: 20px;"><%= link_to "수록곡" , artists_show_track_path(@artist.id)%></span>
+							</span>
+						</span>
+					</li>
+					<li style=" float: left;width: 25%; height: 34px;border-right: 1px solid #dbdbdb;">
+						<span href = "" style ="display: block;position: relative;padding: 10px 0 0px 0px;color: #1b1b1b;text-align: center;">
+						<span style ="color: #1b1b1b; text-align: center;">
+							<span style = "top: 9px; width: 18px; height: 20px;"><%= link_to "앨범", artists_show_album_path(@artist.id)%></span>
+							</span>
+						</span>
+					</li>
+					<li style=" float: left;width: 24%; height: 34px;">
+						<span href = "" style ="display: block;position: relative;padding: 10px 0 0px 0px;color: #1b1b1b;text-align: center;">
+						<span style ="color: #1b1b1b; text-align: center;">
+							<span style = "top: 9px; width: 18px; height: 20px;"><%= link_to "비디오", artists_show_video_path(@artist.id)%></span>
+							</span>
+						</span>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="section_cont" style="border-bottom:1px solid #1a1a1a;">
+				<div class="sort_info" style="padding:24px 0 30px; ">
+					<div class="wrap_sort" style=" float:left; color: #1a1a1a;">
+						<h5 style="margin-right:8px; color: #1a1a1a;text-decoration: none; font-size:20px;">전체앨범</h5>
+					</div>
+				</div>
+			</div>
+				<div>
+			<div class="page_list margin-top:10px;">
+				<div class = "list_albums" style="border-bottom: 1px solid #ccc;background: url(//cdnimg.melon.co.kr/resource/image/web/common/bg_list_album11.png) repeat 0 0;">
+					<% @ar_albums.each do |album| %>
+					<ul style="margin-bottom: -1px;">
+						<li style="float: left;width: 320px;margin: 0 16px 0 0;padding: 16px 0 17px;border-bottom: 1px solid #ccc;">
+							<div style="position:relative;">
+								<span style="display: block;position: absolute;width: 130px;height: 130px;text-decoration: none;">
+									<span style="    position: absolute;top: 0;left: 0;width: 130px;height: 130px;background: url(//cdnimg.melon.co.kr/resource/image/web/common/bg_frame_album04.png) no-repeat 0 0;"></span>
+									<img style=" width: 130px;aspect-ratio: auto 130 / 130;height: 130px;" src="<%= album.album_link %>">
+								</span>
+								<div style="height: 130px; padding: 0 0 0 146px;">
+									<dl>
+										<dt style="height: 30px;padding: 2px 0 0;font-weight: bold;font-size: 12px;line-height: 14px;color: #1a1a1a;">
+										<span style="    display: inline-block;width: auto;max-width: 100%;color: #555;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;"><%= link_to album.title, album_path(album.id) %></span>
+										</dt>
+										<dd style="display: block;width: 100%;color: #79a54c;white-space: nowrap;text-overflow: ellipsis;"> <%= album.artist.activity_name %></dd>
+										<dd style="margin: 3px 0 0;height: 17px; margin-top:63px;">
+											<span style="color: #777;font-size: 12px;line-height: 14px;"><%= album.release_day%></span>
+											<em style="color: #d9d9d9;font-style: normal;font-size: 11px;line-height: 14px;">|</em>
+											<span style="color: #777;font-size: 12px;line-height: 14px;"><%= album.tracks.size %>곡</span>
+											<em style="color: #d9d9d9;font-style: normal;font-size: 11px;line-height: 14px;">|</em>
+											<div style="display: inline-block;position: relative;padding-left: 15px;color: #777 !important;font-size: 12px;line-height: 14px;">
+											<span style="display: block;position: absolute;top: 2px;left: 0;width: 11px;height: 10px;
+    background: url(//cdnimg.melon.co.kr/resource/image/web/common/bg_sprite_like.png) no-repeat 0 0;font-size: 0;line-height: 0;"></span>
+											<%= album.recommend %>
+											</div>
+										</dd>
+									</dl>
+								</div>
+							</div>
+						</li>
+						
+					</ul>
+					<%end%>
+					
+				</div>
+			</div>
+		
+	</div>
+
+			
+				

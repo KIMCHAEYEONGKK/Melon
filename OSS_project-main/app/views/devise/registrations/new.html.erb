@@ -1,0 +1,60 @@
+<div class="page_header" style="position: relative;width: 550px;margin: 0 auto;padding: 68px 0 42px;z-index: 20;text-align: center; margin-top:60px;">
+	<h1 style="display: inline-block;float: none;margin-top: 0;padding: 0;width: 206px;height: 56px;text-align: center;margin-right:175px;">
+		<img  style="width: 206px;aspect-ratio: auto 206 / 56; height: 56px; " src="https://cdnimg.melon.co.kr/resource/image/web/member/img_logo206x56.png">
+	</h1>
+</div>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="field" style="width: 550px;margin: 0 auto;padding: 0; margin-top:10px;">
+	  <div style="position: relative;margin: 0 auto;width: auto !important">
+  <div class="field">
+    <%= f.label :email ,style:"font-size:15px;"%>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",style:"width:366px; height:49px;" %>
+  </div>
+<div>
+     <%= f.label :name ,style:"font-size:15px;"%>
+     <%= f.text_field :name, autofocus: true ,style:"width:366px; height:49px;"%>
+</div>
+<div>
+     <%= f.label :nickname,style:"font-size:15px;" %>
+     <%= f.text_field :nickname, autofocus: true ,style:"width:366px; height:49px;"%>
+</div>
+<div>
+     <%= f.hidden_field :priceon, value:0 %>
+</div>
+<div>
+     <%= f.label :phonenum ,style:"font-size:15px;"%>
+     <%= f.text_field :phonenum, autofocus: true ,style:"width:366px; height:49px;"%>
+</div>
+<div class="field">
+    <%= f.label :profile_img ,style:"font-size:15px;"%>
+    <%= f.text_field :profile_img, autofocus: true ,style:"width:366px; height:49px;"%>
+</div>
+  <div class="field">
+    <%= f.label :password ,style:"font-size:15px;"%>
+    <% if @minimum_password_length %>
+    (<%= @minimum_password_length %> characters minimum)
+    <% end %><br>
+    <%= f.password_field :password, autocomplete: "new-password" ,style:"width:366px; height:49px;"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation ,style:"font-size:15px;"%>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",style:"width:366px; height:49px;" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "회원가입", style:"display: block;
+    width: 384px;
+    background: #00cd3c;
+    padding: 17px 0 21px;
+    text-align: center;
+    color: #fff;
+    line-height: 22px;
+    font-size: 18px;" %>
+  </div>
+<% end %>
+	  </div>
+</div>
+

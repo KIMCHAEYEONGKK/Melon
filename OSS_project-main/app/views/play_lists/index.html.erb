@@ -1,0 +1,150 @@
+<p id="notice"><%= notice %></p>
+<div class = "cont_wrap" style="margin:0 auto; background:0; zoom:1;">
+	<div class = "fold" style = "padding: 0 20px; position:relative; width:1008px; margin:0 auto;">
+		<div class = "cont" style = "position; relative; z-index:10; display:block; width:1008px; min-height:800px; padding:29px 0 88px; zoom:1;">
+<h2 style="color: #1a1a1a; font-weight: bold;font-size: 24px;line-height: 30px; font-family:'Malgun Gothic'; padding-bottom:25px;">
+	마이뮤직
+			</h2>
+			  <div class="field" style="width:612px; height:130px;">
+				  <div style="float:left; width:250px;">
+			<img style="position: relative;display: block;width: 98px;height: 98px; float:left;" src="<%= current_user.profile_img%>">
+	  <span style="font-size: 23px;color:#1a1a1a;font-weight: 500;line-height: 30px; margin-left:15px;"><%= current_user.name %>님</span>
+			<% if @pay_t%>
+				<p style="float:left;display: inline-block;width: auto;max-width: 190px;white-space: nowrap;">스트리밍클럽 사용중</p>
+				<% else%>
+				<p style="width: auto; max-width:183px; padding-left:115px;">결제 후 이용 가능</p>
+				<%end%>
+				</div>
+			</div>
+			<div class="user_info">
+				<h2 style="color: #1a1a1a; font-weight: bold;font-size: 24px;line-height: 30px; font-family:'Malgun Gothic'; padding-bottom:25px; border-bottom:1px solid;">
+	나의 플레이 리스트
+			</h2>
+			</div>
+			<table style =" width:100%; border-collapse: collapse; border-spacing:0;" border="1">
+				<thead>
+					<tr>
+						<th style="width:15px;height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align:left; vertical-align:middle; ">
+							<div class="wrap t_right" style = "padding-top:2px; text-align:right;">
+								<input type="checkbox" style= "margin:0;">
+							</div>
+						</th>
+						<th style = "width:62px;  height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px;">
+								<span style="display: inline-block; width:32px; padding: 0 18px 0 12px;">번호</span>
+							</div>
+						</th>
+					
+						<th style = "width:24px; height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div class ="none"style="padding-top: 2px;position: absolute;top: -5000em;left: 0;width: 0;height: 0;font-size: 0;line-height: 0;overflow: hidden;">
+								곡상세가기
+							</div>
+						</th>
+						<th style = "width:558px;height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px; padding-left: 12px;">
+								곡정보
+							</div>
+						</th>
+						
+						<th style = "width:111px; height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px; padding-left: 30px;">
+								좋아요
+							</div>
+						</th>
+						<th style = "width:58px; height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px; text-align:center;">
+								듣기
+							</div>
+						</th>
+						<th style = "width:52px; height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px; text-align:center;">
+								담기
+							</div>
+						</th>
+						<th style = "width:52px; height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px; text-align:center;">
+								다운
+							</div>
+						</th>
+						<th style = "width:52px; height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px; text-align:center;">
+								뮤비
+							</div>
+						</th>
+					</tr>
+				</thead>
+			
+			<% a = 1 %>
+			<% @my_play_lists.each do |play_list| %>
+			<tbody>
+				<tr style="display: table-row;">
+					<td style="height:84px; border-bottom:1px solid #f2f2f2; text-algin:left; vertical-algin:middle;">
+							<div style = "text-algin: right; margin-top:31px;">
+								<input type="checkbox" style="border: initial;background-color: initial;cursor: default;appearance: auto;box-sizing: border-box; vertical-algin:middle;" >
+							</div>
+						</td>
+					<td style="text-align: left; vertical-align: middle; height:84px; border-bottom:1px solid #f2f2f2;">
+							<div class="atist_id" style="text-align:center;">
+								<span style="display: inline-block;padding-top: 5px;color: #333;font-size: 18px;width: 32px;padding: 0 18px 0 12px;" ><%= a %></span>
+								<% a = a + 1 %>
+							</div>
+					</td>
+					<td style="border-bottom:1px solid #f2f2f2; text-algin:left; vertical-algin:middle;">
+							<div class="wrap" style="width:50px;">
+							</div>
+						</td>
+					<td style="border-bottom:1px solid #f2f2f2;vertical-align: middle;">
+							<div class="wrap" style="text-algin:left;">
+								<div class="wrap_song_info" style="display: inline-block;width: 100%;margin-left: 12px;vertical-align: middle;">
+									<div class="ellipsis" style="display: inline-block;padding-right: 1px;vertical-align: middle;white-space: nowrap;text-overflow: ellipsis;word-wrap: normal;overflow: hidden;">
+										<span><%= link_to play_list.track.title ,track_path(play_list.track.id)%></span>
+									</div>
+									<br>
+									<div style="max-width: 220px;">
+
+									</div>
+								</div>	
+							</div>
+						</td>
+					<td style="border-bottom:1px solid #f2f2f2;vertical-align: middle;">
+							<div class="wrap">
+								<button style="height: 14px;visibility: visible;overflow: hidden; margin-left:18px;">
+									<span style="display: inline-block;position: relative;top: 1px;width: 14px;height: 12px;background: url(//cdnimg.melon.co.kr/resource/image/web/common/bullet_icons_sprite_20201112.png) no-repeat -69px -15px;vertical-align: top;line-height: 0;font-size: 0; overflow: hidden;"></span>
+									<span style="color: #888;line-height: 14px;font-size: 12px;letter-spacing: 0;vertical-align: top;"><%= play_list.track.recommend %></span>
+								</button>
+								
+							</div>
+						</td>
+					<td style="border-bottom: 1px solid #f2f2f2;text-align: left;vertical-align: middle;">
+							<div style="text-align:center;">
+								<%= audio_tag play_list.track.track_play, controls: "controls" , class: "my_audio",  style: "width: 19px;height: 28px;"%>
+							</div>
+						</td>
+					<td style="border-bottom: 1px solid #f2f2f2;text-align: left;vertical-align: middle;">
+							<div style="text-align:center;">
+								<button type="button" style="width: 19px;height: 28px;background-position: -45px -30px;background-position-y: -58px;background-image: url(//cdnimg.melon.co.kr/resource/image/web/common/button_icons_sprite_20200521.png);">
+								</button>
+							</div>
+						</td>
+					<td style="border-bottom: 1px solid #f2f2f2;text-align: left;vertical-align: middle;">
+							<div style="text-align:center;">
+								<button type="button" style="width: 21px;height: 24px;background-position: -98px -30px;background-image: url(//cdnimg.melon.co.kr/resource/image/web/common/button_icons_sprite_20200521.png);background-position-y: -58px;">
+								</button>
+							</div>
+					</td>
+					<td style="border-bottom: 1px solid #f2f2f2;text-align: left;vertical-align: middle;">
+							<div style="text-align:center;">
+								<button type="button" style="width: 24px;height: 28px;background-position: -152px -30px;background-position-y: -58px;background-image: url(//cdnimg.melon.co.kr/resource/image/web/common/button_icons_sprite_20200521.png);">
+								</button>
+							</div>
+						</td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+			
+		</div>
+	</div>
+</div>
+
+

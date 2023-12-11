@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<div class = "cont_wrap" style="margin:0 auto; background:0; zoom:1;">
+	<div class = "fold" style = "padding: 0 20px; position:relative; width:1008px; margin:0 auto;">
+		<div class = "cont" style = "position; relative; z-index:10; display:block; width:1008px; min-height:800px; padding:29px 0 88px; zoom:1;">
+<h2 style="color: #1a1a1a; font-weight: bold;font-size: 24px;line-height: 30px; font-family:'Malgun Gothic'; padding-bottom:25px;">
+	곡 정보
+			</h2>
+	<div class= "cont" style = "border: 1px solid #bbbbbb; border-top: 2px solid #808080; height:270px; margin:0; padding:0; display: block; vertical-align: baseline;">
+		<div class="atisit_img" style="position:relative; float:left; width:208px; padding:29px 20px 28px;">
+			<img src="<%= @track.album.album_link %>" style = "width: 208px; height: 208px;">	
+		</div>
+	
+	<div class="artist_Information" style="float:left; width:600px; margin-left:22px; margin-top:29px;">
+		<p style="leter-spacing: -1px;color: #1a1a1a; font-family:'Malgun Gothic'; font-size: 20px;line-height: 30px;">
+			<%= @track.title %></p>
+			<span style = "font-size:16px;font-weight: bold;font-color: #00b423;"><%= link_to @track.album.artist.activity_name, artist_path(@track.album.artist.id) %></span>
+		
+		<dl class = "atist_info" style = "margin-top:19px; display:block;">
+			<dt style="clear: left;float: left;width: 70px;padding-left: 2px;color: #666;font-size: 12px;line-height: 20px;">앨범</dt>
+			<dd style = "float: left;width: 368px;color: #1a1a1a;font-size: 12px;line-height: 20px;font-family: 'Malgun Gothic';">
+			<span style="display: inline-block;"><%=link_to @track.album.title, album_path(@track.album.id) %></span>
+			</dd>
+			<dt style="clear: left;float: left;width: 70px;padding-left: 2px;color: #666;font-size: 12px;line-height: 20px;margin-top:5px;">발매일</dt>
+			<dd style = "float: left;width: 368px;color: #1a1a1a;font-size: 12px;line-height: 20px;font-family: 'Malgun Gothic';margin-top:5px;">
+			<span style="display: inline-block;"><%= @track.album.release_day %></span>
+			</dd>
+			<dt style="clear: left;float: left;width: 70px;padding-left: 2px;color: #666;font-size: 12px;line-height: 20px;margin-top:5px;">장르</dt>
+			<dd style = "float: left;width: 368px;color: #1a1a1a;font-size: 12px;line-height: 20px;font-family: 'Malgun Gothic';margin-top:5px;">
+			<span style="display: inline-block;"><%= @track.genre %></span>
+			</dd>
+			<dt style="clear: left;float: left;width: 70px;padding-left: 2px;color: #666;font-size: 12px;line-height: 20px;margin-top:5px;"><span style="display: inline-block;position: relative;top: 1px;width: 14px;height: 12px;background: url(//cdnimg.melon.co.kr/resource/image/web/common/bullet_icons_sprite_20201112.png) no-repeat -69px -15px;vertical-align: top;line-height: 0;font-size: 0; overflow: hidden;margin-top:3px;margin-left:3px;"></span></dt>
+			<dd style = "float: left;width: 368px;color: #1a1a1a;font-size: 12px;line-height: 20px;font-family: 'Malgun Gothic';margin-top:5px;">
+			<span style="display: inline-block;"><%= @track.recommend %></span>
+			</dd>
+			<dt style="clear: left;float: left;width: 70px;padding-left: 2px;color: #666;font-size: 12px;line-height: 20px;margin-top:20px;">노래 재생</dt>
+			<dd style = "float: left;width: 368px;color: #1a1a1a;font-size: 12px;line-height: 20px;font-family: 'Malgun Gothic';margin-top:5px;">
+			<span style="display: inline-block;"><%= audio_tag @track.track_play, controls: "controls" %></span>
+			</dd>
+		</dl>
+	</div>
+		
+</div>
+			<div class="section_lyric"style="margin-bottom:35px;margin-top:35px;">
+			<div class="lyric_headline" style="padding-bottom: 7px; border-bottom: 1px solid #d9d9d9;overflow: visible;height: 28px;">
+				<h5 style="float:left;height: 28px;line-height: 28px;font-size: 20px;color: #1a1a1a;">가사</h5>
+			</div>
+				<div style="position: relative;padding: 5px 0 45px;">
+					<div class="lyric_on" style="height: 170px;line-height: 24px;color: #767676;font-size: 14px;" tabindex="0">
+						<%= @track.lyrics %>
+					</div>
+				</div>
+		</div>

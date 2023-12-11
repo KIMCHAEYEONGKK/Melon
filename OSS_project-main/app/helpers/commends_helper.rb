@@ -1,0 +1,2 @@
+module CommendsHelper
+end

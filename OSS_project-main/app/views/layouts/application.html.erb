@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+  <html lang="ko">
+	
+	<head>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src= "https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+	
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>오픈SW 과제 페이지</title>
+
+	<meta name="naver-site-verification" content="ee85ff6db1fa8f2226bcb671ecb2bcdbcffb6f8b">
+	<meta name="google-site-verification" content="q4tbTQhmxa4La3OdNLsNOCxrJ_WV6lUlBFrFW4-HqQc">
+	<meta property="fb:app_id" content="357952407588971">
+	<meta property="og:image" content="https://cdnimg.melon.co.kr/resource/image/web/common/logo_melon142x99.png">
+	<meta name="viewport" content="width=device-width">
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?2" id="favicon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,800;1,400;1,800&family=Square+Peg&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnimg.melon.co.kr/static/web/resource/style/w1/av/i/qrguc73w.css" type="text/css">
+	<link rel="stylesheet" href="https://cdnimg.melon.co.kr/static/web/resource/style/w1/ri/4/rw98ltzfrqdnf.css" type="text/css">
+	<link rel="stylesheet" href="https://cdnimg.melon.co.kr/static/web/resource/style/w1/r7/7/82sh71zyawnpq7.css" type="text/css">
+	</head>
+<header class="">
+<div id="wrap">  <!-- 이벤트일 경우 event_gnb 추가 -->
+	<div id="skip_nav">skip navigation
+		<ul>
+			<li><a href="#gnb_menu">메뉴</a></li>
+			<li><a href="#conts_section">본문</a></li>
+			<li><a href="#footer">하단 정보</a></li>
+		</ul>
+	</div>
+	<div id="header" class="main">
+		<div id="header_wrap" class="pr_none">  <!-- 메인 컨텐츠 가운데 정렬을 위한 pr_none 클래스 추가 -->
+			<div id="gnb" class="clfix">
+				<!-- 상단 빠른 메뉴 -->
+				<div id="util_menu">
+					<p class="none">상단 빠른 메뉴</p>
+					<div class="top_left">
+						<ul class="clfix">
+							
+							<li class="first_child d_melon_ticket"><a href="https://ticket.melon.com/main/index.htm" title="멜론 티켓" class="menu01 mlog"><span>멜론 티켓</span></a></li>
+						</ul>
+					</div>
+					<!-- 140603_수정 -->
+					<div class="top_right ">
+						<ul class="clfix" style="float:left;">
+							
+
+							<% if user_signed_in? %>
+							
+							<li class="user_id_hidden" style="position: relative;float: left;margin: 0 7px 0 0; padding-left: 9px;height: 35px; width:93px;">
+								<button id = "check_module" type="button"style="display: inline-block;padding: 11px 7px;vertical-align: top;"> 이용권구매</button></li>
+							
+							<li class="user_id_hidden" style="position: relative;float: left;margin: 0 7px 0 0; padding-left: 9px;height: 35px; width:77px;">
+								<a href="/event/vip/index.htm"style="display: inline-block;padding: 11px 7px;vertical-align: top;" title="멜론라운지" class="menu02 mlog" ><span>멜론라운지</span></a></li>
+							
+							<li class="user_id_hidden" style="position: relative;float: left;margin: 0 7px 0 0; padding-left: 9px;height: 35px; width:55px;">
+								<a href="/event/index.htm" title="이벤트" class="menu03 mlog" style="display: inline-block;padding: 11px 7px;vertical-align: top;"><span>이벤트</span></a></li>
+							
+							<li class="user_id_hidden" style="position: relative;float: left;margin: 0 7px 0 0; padding-left: 9px;height: 35px; width:67px;">
+								<a href="/customer/announce/index.htm" title="공지사항" class="menu04 mlog" style="display: inline-block;padding: 11px 7px;vertical-align: top;"><span>공지사항</span></a></li>
+							
+							<li class="user_id_hidden" style="position: relative;float: left;margin: 0 7px 0 0; height: 35px; width:60px;">
+							<span style="display: inline-block;padding: 11px 7px;">
+							<h3 style=" width:100px; height:12px;"><%= current_user.name%>님</h3>
+							</span>
+							</li>
+							<li class="user_id_hidden" style="position: relative;float: left; height: 35px; width:60px;">
+							<span style="display: inline-block;">
+							<h3 style=" width:200px; height:12px;"> <%= link_to("로그아웃", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" } )%></h3>
+							</span>
+							</li>
+							<% else %>
+							<li class="user_id_hidden" style="position: relative;float: left;margin: 0 7px 0 0; padding-left: 9px;height: 35px; width:93px;">
+								<span style="display: inline-block;">
+							<h3 style=" width:200px; height:12px;"> <%= link_to("이용권구매", new_user_session_path ) %></h3>
+							</span>
+							</li>
+								
+							
+								
+							<li class="user_id_hidden" style="position: relative;float: left;margin: 0 7px 0 0; padding-left: 9px;height: 35px; width:77px;">
+								<a href="/event/vip/index.htm"style="display: inline-block;padding: 11px 7px;vertical-align: top;" title="멜론라운지" class="menu02 mlog" ><span>멜론라운지</span></a></li>
+							
+							<li class="user_id_hidden" style="position: relative;float: left;margin: 0 7px 0 0; padding-left: 9px;height: 35px; width:55px;">
+								<a href="/event/index.htm" title="이벤트" class="menu03 mlog" style="display: inline-block;padding: 11px 7px;vertical-align: top;"><span>이벤트</span></a></li>
+							
+							<li class="user_id_hidden" style="position: relative;float: left;margin: 0 7px 0 0; padding-left: 9px;height: 35px; width:67px;">
+								<a href="/customer/announce/index.htm" title="공지사항" class="menu04 mlog" style="display: inline-block;padding: 11px 7px;vertical-align: top;"><span>공지사항</span></a></li>
+							
+							<% end %>
+						</ul>
+					
+					</div>
+					<!-- //140603_수정 -->
+				</div>
+				<!-- //상단 빠른 메뉴 -->
+
+				<!-- 140603_수정 -->
+				
+				<h1><a href="/" title="MelOn 로고 - 홈으로 이동" class="mlog" ><img width="142" height="99" src="https://cdnimg.melon.co.kr/resource/image/web/common/logo_melon142x99.png" alt="Melon"></a></h1>
+
+				<!-- //140603_수정 -->
+				<!-- 통합검색 영역 -->
+				<fieldset>
+					<legend>통합검색영역</legend>
+					<input type="text" title="검색 입력 편집창" placeholder="" name="" id="top_search" style="width: 249px; display: block;" onkeypress="if(event.keyCode == 13){goSearch();}" class="ui-autocomplete-input" autocomplete="off"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input type="hidden" name="keywordLink" id="keywordLink" value="https://www.melon.com/album/detail.htm?albumId=11109622&amp;WLFC=3SEARCH">
+					<button type="button" style="display: none;" id="top_search_autocomplete_toggle" class="btn_icon btn_auto close" title="자동검색 펼침"><span class="odd_span">자동검색 펼침</span></button> <!-- open/close 클래스 사용 -->
+					<button type="button" class="btn_icon search_m" title="검색"><span class="odd_span">검색</span></button>
+					<div class="auto_complete" id="top_search_autocomplete"><div class="auto_complete_cont" style="display:block;"><!-- 자동완성 레이어 --></div><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all" id="ui-id-1" tabindex="0" style="display: none;"></ul></div>
+					<div class="auto_complete" id="top_search_autocomplete_template" style="display: none;"> <!-- 자동완성 레이어 템플릿 -->
+						<!-- 텍스트 결과 -->
+						<ul class="text_result">
+							<li><a href="#" class="autocomplete-label"></a></li>
+						</ul>
+						<!-- 섬네일 결과 -->
+						<ul class="thumb_result">
+							<li class="cate"></li>
+							<li class="class02">
+								<a href="#">
+									<span class="thumb_40">
+										<span class="thumb_frame"></span>
+										<img class="autocomplete-img" width="40" height="40" alt="">
+									</span>
+									<div class="info">
+										<span class="autocomplete-label"></span><br>
+										<span><span class="f11 autocomplete-info"></span></span>
+									</div>
+								</a>
+							</li>
+						</ul>
+						<!-- 검색어가 없을 때 -->
+						<ul class="text_result">
+							<li class="result_none">
+								<span>해당글자로 시작하는 단어가 없습니다.</span>
+							</li>
+						</ul>
+					</div>
+				</fieldset>
+				<form style="display: none" id="searchFrm" method="get" action="">
+					<input type="hidden" name="q">
+					<input type="hidden" name="section">
+				</form>
+				<!-- //통합검색 영역 -->
+
+				<!-- 실시간 검색어 -->
+			
+				<!-- //실시간 검색어 -->
+
+				<!-- 배너 영역 -->
+				<div class="cmn_banner">
+	<!-- 랜덤으로 뿌릴 것 -->
+	
+		
+		<a href="http://www.melon.com/musicstory/informView.htm?mstorySeq=13211" title="매거진 제이레빗 (J Rabbit) - 페이지 이동" class="d_item mlog" data="LOG_PRT_CODE=1&amp;MENU_PRT_CODE=0&amp;MENU_ID_LV1=&amp;CLICK_AREA_PRT_CODE=Z04&amp;ACTION_AF_CLICK=V1&amp;CLICK_CONTS_TYPE_CODE=&amp;CLICK_CONTS_ID=&amp;PROMO_CONTS_TYPE_CODE=&amp;PROMO_CONTS_ID=&amp;PROMO_SEQ=188046&amp;PROMO_DTL_SEQ=1" style="display: inline;">
+			<img width="280" height="75" src="https://cdnimg.melon.co.kr/svc/images/main/imgUrl20221122055305.png" alt="">
+		</a>
+	
+		
+		<a href="https://www.melon.com/mma/home.htm" title="MMA2022 - 페이지 이동" class="d_item mlog" data="LOG_PRT_CODE=1&amp;MENU_PRT_CODE=0&amp;MENU_ID_LV1=&amp;CLICK_AREA_PRT_CODE=Z04&amp;ACTION_AF_CLICK=V1&amp;CLICK_CONTS_TYPE_CODE=&amp;CLICK_CONTS_ID=&amp;PROMO_CONTS_TYPE_CODE=&amp;PROMO_CONTS_ID=&amp;PROMO_SEQ=188066&amp;PROMO_DTL_SEQ=1" style="display: none;">
+			<img width="280" height="75" src="https://cdnimg.melon.co.kr/svc/images/main/imgUrl20221124063133.png" alt="">
+		</a>
+	
+		
+		<a href="http://www.melon.com/buy/pamphlet/discount.htm" title="상품매대_2개월 50% - 페이지 이동" class="d_item mlog" data="LOG_PRT_CODE=1&amp;MENU_PRT_CODE=0&amp;MENU_ID_LV1=&amp;CLICK_AREA_PRT_CODE=Z04&amp;ACTION_AF_CLICK=V1&amp;CLICK_CONTS_TYPE_CODE=&amp;CLICK_CONTS_ID=&amp;PROMO_CONTS_TYPE_CODE=&amp;PROMO_CONTS_ID=&amp;PROMO_SEQ=184263&amp;PROMO_DTL_SEQ=1" style="display: none;">
+			<img width="280" height="75" src="https://cdnimg.melon.co.kr/svc/images/main/imgUrl20220815075000.png" alt="">
+		</a>
+	
+
+	
+ 	<div class="gnb_banner_btn">
+	<a href="" class="btn prev d_btn_ctrl" title="이전 이벤트 보기">이전 이벤트 보기</a>
+	<a href="" class="btn next d_btn_ctrl" title="다음 이벤트 보기">다음 이벤트 보기</a>
+	</div>
+	
+</div>
+			</div>
+            <!-- 140314_gnb마크업 수정 -->
+			<div id="gnb_menu">
+				<ul>
+					<li class="nth1">
+						
+						<a href="/tracks" class="cur_menu mlog" data="LOG_PRT_CODE=1&amp;MENU_PRT_CODE=0&amp;MENU_ID_LV1=&amp;CLICK_AREA_PRT_CODE=R01&amp;ACTION_AF_CLICK=V1"><span class="cur_status none">현재 선택된 메뉴-</span><span class="menu_bg menu01">멜론차트</span></a>
+					</li>
+					<li class="nth2">
+						
+						<a href="/new/index.htm" class="cur_menu mlog" data="LOG_PRT_CODE=1&amp;MENU_PRT_CODE=0&amp;MENU_ID_LV1=&amp;CLICK_AREA_PRT_CODE=C01&amp;ACTION_AF_CLICK=V1"><span class="cur_status none">현재 선택된 메뉴-</span><span class="menu_bg menu02 ">최신 음악</span></a>
+					</li>
+					<li class="nth3">
+						
+						<a href="/genre/song_list.htm" class="cur_menu mlog" data="LOG_PRT_CODE=1&amp;MENU_PRT_CODE=0&amp;MENU_ID_LV1=&amp;CLICK_AREA_PRT_CODE=C03&amp;ACTION_AF_CLICK=V1"><span class="cur_status none">현재 선택된 메뉴-</span><span class="menu_bg menu03">장르 음악</span></a>
+					</li>
+					<li class="nth4">
+						
+						<a href="/dj/today/djtoday_list.htm" class="cur_menu mlog" data="LOG_PRT_CODE=1&amp;MENU_PRT_CODE=0&amp;MENU_ID_LV1=&amp;CLICK_AREA_PRT_CODE=S04&amp;ACTION_AF_CLICK=V1"><span class="cur_status none">현재 선택된 메뉴-</span><span class="menu_bg menu04">멜론DJ</span></a>
+					</li>
+					<li class="nth5">
+						
+						<a href="/tv/index.htm" class="cur_menu mlog" data="LOG_PRT_CODE=1&amp;MENU_PRT_CODE=0&amp;MENU_ID_LV1=&amp;CLICK_AREA_PRT_CODE=S05&amp;ACTION_AF_CLICK=V1"><span class="cur_status none">현재 선택된 메뉴-</span><span class="menu_bg menu05">멜론TV</span></a>
+					</li>
+					<li class="nth6">
+						
+						<a href="/artistplus/todayupdate/index.htm" class="cur_menu mlog" data="LOG_PRT_CODE=1&amp;MENU_PRT_CODE=0&amp;MENU_ID_LV1=&amp;CLICK_AREA_PRT_CODE=S07&amp;ACTION_AF_CLICK=V1"><span class="cur_status none">현재 선택된 메뉴-</span><span class="menu_bg menu06">스타포스트</span></a>
+					</li>
+					<!-- 160314 수정 -->
+					<li class="nth7">
+						
+						<a href="/musicstory/today/index.htm" class="cur_menu mlog" data="LOG_PRT_CODE=1&amp;MENU_PRT_CODE=0&amp;MENU_ID_LV1=&amp;CLICK_AREA_PRT_CODE=S09&amp;ACTION_AF_CLICK=V1"><span class="cur_status none">현재 선택된 메뉴-</span><span class="menu_bg menu07">매거진</span></a>
+					</li>
+					<!-- // 160314 수정 -->
+					<li class="nth8">
+						
+						<a href="/mma/home.htm" class="cur_menu mlog" data="LOG_PRT_CODE=1&amp;MENU_PRT_CODE=0&amp;MENU_ID_LV1=&amp;CLICK_AREA_PRT_CODE=S11&amp;ACTION_AF_CLICK=V1"><span class="cur_status none">현재 선택된 메뉴-</span><span class="menu_bg menu08">뮤직어워드</span></a>
+					</li>
+
+					<li class="nth10 last_child ">
+						
+						<a href="/edu/index.htm" class="cur_menu mlog" data="LOG_PRT_CODE=1&amp;MENU_PRT_CODE=0&amp;MENU_ID_LV1=&amp;CLICK_AREA_PRT_CODE=C04&amp;ACTION_AF_CLICK=V1"><span class="cur_status none">현재 선택된 메뉴-</span><span class="menu_bg menu10">어학</span></a>
+					</li>
+				</ul>
+			    <% if user_signed_in? %>
+				
+				<ul class="sub_gnb">
+					
+					<li class="">
+						<a href="/play_lists" class="cur_menu mlog" data="LOG_PRT_CODE=1&amp;MENU_PRT_CODE=0&amp;MENU_ID_LV1=&amp;CLICK_AREA_PRT_CODE=S01&amp;ACTION_AF_CLICK=V1"><span class="cur_status none">현재 선택된 메뉴-</span><span class="menu_bg menu09">마이뮤직</span></a>
+					</li>
+				</ul>
+				<!-- <ul class="sub_gnb">
+					
+					<li class="">
+						<button id = "check_module" type="button"style="display: inline-block;padding: 11px 7px;vertical-align: top;"> 마이뮤직</button></li>
+					
+				</ul>
+				 -->
+				<%end%>
+			</div>
+            <!-- //140314_gnb마크업 수정 -->
+		</div>
+	</div>
+	</div>
+	</header>
+  <body>
+<%= javascript_include_tag "application" %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+<% if user_signed_in? %>
+	  <%= render "payusers/form" , payuser: @payuser %>
+<% end %>
+<script>
+    $("#check_module").click(function () {
+        var IMP = window.IMP; // 생략가능
+        IMP.init('imp03146600'); 
+        // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+        // i'mport 관리자 페이지 -> 내정보 -> 가맹점식별코드
+        IMP.request_pay({
+            pg: 'kakaopay.TC0ONETIME', // version 1.1.0부터 지원.
+            /* 
+                'kakao':카카오페이, 
+                html5_inicis':이니시스(웹표준결제)
+                    'nice':나이스페이
+                    'jtnet':제이티넷
+                    'uplus':LG유플러스
+                    'danal':다날
+                    'payco':페이코
+                    'syrup':시럽페이
+                    'paypal':페이팔
+                */
+            pay_method: 'card',
+            /* 
+                'samsung':삼성페이, 
+                'card':신용카드, 
+                'trans':실시간계좌이체,
+                'vbank':가상계좌,
+                'phone':휴대폰소액결제 
+            */
+            merchant_uid: 'merchant_' + new Date().getTime(),
+            /* 
+                merchant_uid에 경우 
+                https://docs.iamport.kr/implementation/payment
+                위에 url에 따라가시면 넣을 수 있는 방법이 있습니다.
+                참고하세요. 
+                나중에 포스팅 해볼게요.
+             */
+            name: 'Melon: 개발자 희준',
+            //결제창에서 보여질 이름
+            amount: 100, 
+            //가격 
+            buyer_email: 'iamport@siot.do',
+            buyer_name: '구매자이름',
+            buyer_tel: '010-1234-5678',
+            buyer_addr: '서울특별시 강남구 삼성동',
+            buyer_postcode: '123-456',
+            m_redirect_url: 'https://www.yourdomain.com/payments/complete'
+            /*  
+                모바일 결제시,
+                결제가 끝나고 랜딩되는 URL을 지정 
+                (카카오페이, 페이코, 다날의 경우는 필요없음. PC와 마찬가지로 callback함수로 결과가 떨어짐) 
+                */
+        }, function (rsp) {
+            console.log(rsp);
+            if (rsp.success) {
+                var msg = '결제가 완료되었습니다.';
+                msg += '고유ID : ' + rsp.imp_uid;
+                msg += '상점 거래ID : ' + rsp.merchant_uid;
+                msg += '결제 금액 : ' + rsp.paid_amount;
+                msg += '카드 승인번호 : ' + rsp.apply_num;
+            } else {
+                var msg = '결제에 실패하였습니다.';
+                msg += '에러내용 : ' + rsp.error_msg;
+            }
+            //alert(msg);
+			$("#payment_form").submit();
+        });
+    });
+	</script>
+	  
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,248 @@
+<p id="notice"><%= notice %></p>
+<div class = "cont_wrap" style="margin:0 auto; background:0; zoom:1;">
+	<div class = "fold" style = "padding: 0 20px; position:relative; width:1008px; margin:0 auto;">
+		<div class = "cont" style = "position; relative; z-index:10; display:block; width:1008px; min-height:800px; padding:29px 0 88px; zoom:1;">
+<h2 style="color: #1a1a1a; font-weight: bold;font-size: 24px;line-height: 30px; font-family:'Malgun Gothic'; padding-bottom:25px;">
+	아티스트 채널
+			</h2>
+	<div class= "cont" style = "border: 1px solid #bbbbbb; border-top: 2px solid #808080; height:270px; margin:0; padding:0; display: block; vertical-align: baseline;">
+		<div class="atisit_img" style="position:relative; float:left; width:208px; padding:29px 20px 45px;">
+			<img src="<%= @artist.link %>" style = "width: 208px; height: 208px;">	
+		</div>
+	
+	<div class="artist_Information" style="float:left; width:440px; margin-left:22px; margin-top:29px;">
+		<p style="leter-spacing: -1px;color: #1a1a1a; font-family:'Malgun Gothic'; font-weight: bold;font-size: 24px;line-height: 30px;">
+			<%= @artist.activity_name %>
+			<span style = "font-size:16px; font-family:'Malgun Gothic';"><%= @artist.real_name %></span>
+		</p>
+		<dl class = "atist_info" style = "margin-top:19px; display:block;">
+			<dt style="clear: left;float: left;width: 70px;padding-left: 2px;color: #666;font-size: 12px;line-height: 20px;">데뷔</dt>
+
+	
+			<dd style = "loat: left;width: 368px;color: #1a1a1a;font-size: 12px;line-height: 20px;font-family: 'Malgun Gothic';">
+			<span style="display: inline-block;"><%= @artist.debut_day %></span>
+			</dd>
+			<dt style="clear: left;float: left;width: 70px;padding-left: 2px;color: #666;font-size: 12px;line-height: 20px;">생일</dt>
+			<dd style = "loat: left;width: 368px;color: #1a1a1a;font-size: 12px;line-height: 20px;font-family: 'Malgun Gothic';">
+			<span style="display: inline-block;"><%= @artist.birth_day %></span>
+			</dd>
+			<dt style="clear: left;float: left;width: 70px;padding-left: 2px;color: #666;font-size: 12px;line-height: 20px;">활동유형</dt>
+			<dd style = "loat: left;width: 368px;color: #1a1a1a;font-size: 12px;line-height: 20px;font-family: 'Malgun Gothic';">
+			<span style="display: inline-block;"><%= @artist.activity_type %></span>
+			</dd>
+			<dt style="clear: left;float: left;width: 70px;padding-left: 2px;color: #666;font-size: 12px;line-height: 20px;">소속사</dt>
+			<dd style = "loat: left;width: 368px;color: #1a1a1a;font-size: 12px;line-height: 20px;font-family: 'Malgun Gothic';">
+			<span style="display: inline-block;"><%= @artist.agency %></span>
+			</dd>
+			<dt style="clear: left;float: left;width: 70px;padding-left: 2px;color: #666;font-size: 12px;line-height: 20px;">수상이력</dt>
+			<dd style = "float: left; max-width: 315px;color: #1a1a1a;font-size: 12px;line-height: 20px;font-family: 'Malgun Gothic';">
+			<span style="display:inline-block; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; width:200px;"><%= @artist.award_history %></span>
+			</dd>
+			<a herf="@id/atist_infor" style="display:inline-block; margin-left:10px;">
+				<span class = "btn"style ="display: inline;color: #666;font-size: 11px;line-height: 1.2em;letter-spacing: -1px;">더보기</span>
+			</a>
+		</dl>
+		<dl class="atist_sns" style="margin-top:11px; zoom:1; display:block;">
+			<a class="btn" href="">
+			<dt style="clear: left;float: left;width: 90px;padding-left: 2px;color: #1a1a1a;font-size: 12px;line-height: 20px;font-family: 'Malgun Gothic';"> <%= link_to "수록곡으로가기",artists_show_track_path(@artist.id)%></dt>
+			</a>
+		</dl>
+			</div>
+			</div>
+			<div class="wrap_tab_atists" style="font-family: 'Malgun Gothic'; ">
+				<ul style="width: 1008px;margin-top: 15px;border-top: 2px solid #838383;border-bottom: 1px solid #dbdbdb;background: #eaefeb;list-style: none;height:34px;">
+					<li style="float: left;width: 25%; border-right: 1px solid #dbdbdb; height: 34px;">
+						<span id = "atist_infor"style ="display: block;position: relative;padding: 10px 0 7px 0px;color: #1b1b1b;text-align: center;">
+						<span style ="color: #1b1b1b; ">
+							<span style = "text-align: center; top: 9px; width: 20px; height: 20px;"><%= link_to "상세 정보", artist_path(@artist.id)%></span>
+							</span>
+						</span>
+					</li>
+					<li style=" float: left;width: 25%; border-right: 1px solid #dbdbdb; height: 34px;">
+						<span href = "" style ="display: block;position: relative;padding: 10px 0 7px 0px;color: #1b1b1b;text-align: center;">
+						<span style ="color: #1b1b1b; text-align: center;">
+							<span style = "top: 9px; width: 20px; height: 20px;"><%= link_to "수록곡" , artists_show_track_path(@artist.id)%></span>
+							</span>
+						</span>
+					</li>
+					<li style=" float: left;width: 25%; height: 34px;border-right: 1px solid #dbdbdb;">
+						<span href = "" style ="display: block;position: relative;padding: 10px 0 0px 0px;color: #1b1b1b;text-align: center;">
+						<span style ="color: #1b1b1b; text-align: center;">
+							<span style = "top: 9px; width: 18px; height: 20px;"><%= link_to "앨범", artists_show_album_path(@artist.id)%></span>
+							</span>
+						</span>
+					</li>
+					<li style=" float: left;width: 24%; height: 34px;">
+						<span href = "" style ="display: block;position: relative;padding: 10px 0 0px 0px;color: #1b1b1b;text-align: center;">
+						<span style ="color: #1b1b1b; text-align: center;">
+							<span style = "top: 9px; width: 18px; height: 20px;"><%= link_to "비디오", artists_show_video_path(@artist.id)%></span>
+							</span>
+						</span>
+					</li>
+				</ul>
+<table style =" width:100%; border-collapse: collapse; border-spacing:0;" border="1">
+				<thead>
+					<tr>
+						<th style="width:15px;height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align:left; vertical-align:middle; ">
+							<div class="wrap t_right" style = "padding-top:2px; text-align:right;">
+								<input type="checkbox" style= "margin:0;">
+							</div>
+						</th>
+						<th style = "width:62px;  height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px;">
+								<span style="display: inline-block; width:32px; padding: 0 18px 0 12px;">번호</span>
+							</div>
+						</th>
+						<th style = "width:50px; height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px;position: absolute;top: -5000em;left: 0;width: 0;height: 0;font-size: 0;line-height: 0;overflow: hidden;">
+								순위등락
+							</div>
+						</th>
+						<th style = "width:60px; height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px;position: absolute;top: -5000em;left: 0;width: 0;height: 0;font-size: 0;line-height: 0;overflow: hidden;">
+								앨범이미지
+							</div>
+						</th>
+						<th style = "width:24px; height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div class ="none"style="padding-top: 2px;position: absolute;top: -5000em;left: 0;width: 0;height: 0;font-size: 0;line-height: 0;overflow: hidden;">
+								곡상세가기
+							</div>
+						</th>
+						<th style = "width:282px;height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px; padding-left: 12px;">
+								곡정보
+							</div>
+						</th>
+						<th style = "width:190px;height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px; padding-left: 12px;">
+								앨범
+							</div>
+						</th>
+						<th style = "width:111px; height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px; padding-left: 30px;">
+								좋아요
+							</div>
+						</th>
+						<th style = "width:58px; height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px; text-align:center;">
+								듣기
+							</div>
+						</th>
+						<th style = "width:52px; height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px; text-align:center;">
+								담기
+							</div>
+						</th>
+						<th style = "width:52px; height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px; text-align:center;">
+								다운
+							</div>
+						</th>
+						<th style = "width:52px; height: 48px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; color: #606060; font-size: 13px; text-align: left; vertical-align: middle;">
+							<div style="padding-top: 2px; text-align:center;">
+								뮤비
+							</div>
+						</th>
+					</tr>
+				</thead>
+			<tbody>
+				<% a = 1 %>
+				<% @ar_albums.each do |album| %>
+					<% @tracks.each do |track| %>
+				<% if album.id == track.album_id %>
+					<tr style="display: table-row;">
+						<td style="height:84px; border-bottom:1px solid #f2f2f2; text-algin:left; vertical-algin:middle;">
+							<div style = "text-algin: right; margin-top:31px;">
+								<input type="checkbox" style="border: initial;background-color: initial;cursor: default;appearance: auto;box-sizing: border-box; vertical-algin:middle;" >
+							</div>
+						</td>
+						<td style="text-align: left; vertical-align: middle; height:84px; border-bottom:1px solid #f2f2f2;">
+							<div class="atist_id" style="text-align:center;">
+								
+								<span style="display: inline-block;padding-top: 5px;color: #333;font-size: 18px;width: 32px;padding: 0 18px 0 12px;" ><%= a %></span>
+								<% a = a + 1 %>
+								
+							</div>
+						</td>
+						<!-- 순위 변동 -->
+						<td style="border-bottom:1px solid #f2f2f2; text-algin:left; vertical-algin:middle;">
+							<div class="wrap">
+								<span style="width: 14px;height: 10px;background-position: 0 -15px;"></span>
+							</div>
+						</td>
+						<td style="border-bottom:1px solid #f2f2f2; text-algin:left; vertical-algin:middle;">
+							<div class="wrap">
+								 <img style="width: 60px;aspect-ratio: auto 60 / 60;height: 60px;margin-top:10px; " src= "<%= track.album.album_link%>">
+							</div>
+						</td>
+						<td style="border-bottom:1px solid #f2f2f2; text-algin:left; vertical-algin:middle;">
+							<span style="width: 12px;background-position: -286px -30px;background-image: url(//cdnimg.melon.co.kr/resource/image/web/common/button_icons_sprite_20200521.png)-286px -30px;"> </span>
+						</td>
+						<td style="border-bottom:1px solid #f2f2f2;vertical-align: middle;">
+							<div class="wrap" style="text-algin:left;">
+								<div class="wrap_song_info" style="display: inline-block;width: 100%;margin-left: 12px;vertical-align: middle;">
+									<div class="ellipsis" style="display: inline-block;padding-right: 1px;vertical-align: middle;white-space: nowrap;text-overflow: ellipsis;word-wrap: normal;">
+										<span><%= link_to track.title, track_path(track.id) %></span>
+									</div>
+									<br>
+									<div style="max-width: 220px;">
+
+										<span style="color: #969696; font-size: 12px;"><%= link_to track.album.artist.activity_name, artist_path(track.album.artist.id) %></span>
+									</div>
+								</div>	
+							</div>
+						</td>
+						<td style="border-bottom:1px solid #f2f2f2;vertical-align: middle;">
+							<div style="display: inline-block;width: 100%;margin-left: 12px;vertical-align: middle;">
+								<div style="max-width:170px;display: inline-block;padding-right: 1px;vertical-align: middle;white-space: nowrap;text-overflow: ellipsis;word-wrap: normal;overflow: hidden;">
+									<span style="color: #969696;font-size: 14px;"><%= link_to track.album.title, album_path(track.album.id) %></span>
+								</div>
+							</div>
+						</td>
+						<td style="border-bottom:1px solid #f2f2f2;vertical-align: middle;">
+							<div class="wrap">
+								<button style="height: 14px;visibility: visible;overflow: hidden; margin-left:18px;">
+									<span style="display: inline-block;position: relative;top: 1px;width: 14px;height: 12px;background: url(//cdnimg.melon.co.kr/resource/image/web/common/bullet_icons_sprite_20201112.png) no-repeat -69px -15px;vertical-align: top;line-height: 0;font-size: 0; overflow: hidden;"></span>
+									<span style="color: #888;line-height: 14px;font-size: 12px;letter-spacing: 0;vertical-align: top;"><%= track.recommend %></span>
+								</button>
+								
+							</div>
+						</td>
+						<td style="border-bottom: 1px solid #f2f2f2;text-align: left;vertical-align: middle;">
+							<div style="text-align:center;">
+								<%= audio_tag track.track_play, controls: "controls" , class: "my_audio",  style: "width: 19px;height: 28px;"%>
+							</div>
+						</td>
+						<td style="border-bottom: 1px solid #f2f2f2;text-align: left;vertical-align: middle;">
+							<div style="text-align:center;">
+								<%if user_signed_in? %> 
+								<%= button_to "+" , play_lists_path(play_list: {user_id: current_user.id, track_id: track.id} ,style:"width: 19px;height: 28px;background-position: -45px -30px;") %>
+								<% else %>
+								<button type="button" style="width: 19px;height: 28px;background-position: -45px -30px;background-position-y: -58px;background-image: url(//cdnimg.melon.co.kr/resource/image/web/common/button_icons_sprite_20200521.png);">
+								</button>
+								<%end%>
+							</div>
+						</td>
+						<td style="border-bottom: 1px solid #f2f2f2;text-align: left;vertical-align: middle;">
+							<div style="text-align:center;">
+								<button type="button" style="width: 21px;height: 24px;background-position: -98px -30px;background-image: url(//cdnimg.melon.co.kr/resource/image/web/common/button_icons_sprite_20200521.png);background-position-y: -58px;">
+								</button>
+							</div>
+						</td>
+						<td style="border-bottom: 1px solid #f2f2f2;text-align: left;vertical-align: middle;">
+							<div style="text-align:center;">
+								<button type="button" style="width: 24px;height: 28px;background-position: -152px -30px;background-position-y: -58px;background-image: url(//cdnimg.melon.co.kr/resource/image/web/common/button_icons_sprite_20200521.png);">
+								</button>
+							</div>
+						</td>
+						</tr>
+					  
+				</tbody>
+						<%end%>
+					<%end%>
+				<%end%>
+			</table>
+		</div>
+	</div>
+
+	

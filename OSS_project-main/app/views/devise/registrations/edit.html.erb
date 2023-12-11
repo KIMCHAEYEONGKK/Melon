@@ -1,0 +1,65 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %> 
+<div class = "cont_wrap" style="margin:0 auto; background:0; zoom:1;">
+	<div class = "fold" style = "padding: 0 20px; position:relative; width:1008px; margin:0 auto;">
+		<div class = "cont" style = "position; relative; z-index:10; display:block; width:1008px; min-height:800px; padding:29px 0 88px; zoom:1;">
+<h2 style="color: #1a1a1a; font-weight: bold;font-size: 24px;line-height: 30px; font-family:'Malgun Gothic'; padding-bottom:25px;">
+	내 정보
+			</h2>
+
+
+  <div class="field" style="width:612px; height:130px;">
+	  <div style="float:left;">
+		  <img style="position: relative;display: block;width: 98px;height: 98px; float:left;" src="<%= current_user.profile_img%>">
+	  <span style="font-size: 23px;font-weight: 500;line-height: 30px; margin-left:15px;"><%= current_user.name %>님 환영합니다
+		  </span>
+		<p style="padding-left:115px;"><%= current_user.email %> 
+		</p>
+		  <a href="/play_lists" class="cur_menu mlog" style="margin-left:15px; margin-top:30px;"><span class="menu_bg menu09">내 플레이 리스트 가기</span></a>
+	  </div>
+  </div>
+			<div class="user_info">
+				<h2 style="color: #1a1a1a; font-weight: bold;font-size: 24px;line-height: 30px; font-family:'Malgun Gothic'; padding-bottom:25px;">
+	세부 정보
+			</h2>
+			</div>
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+<div class="field">
+     <%= f.label :nickname %>
+     <%= f.text_field :nickname, autofocus: true %>
+</div>
+<div>
+     <%= f.hidden_field :priceon, value:0 %>
+</div>
+<div class="field">
+     <%= f.label :phonenum %>
+     <%= f.text_field :phonenum, autofocus: true %>
+</div>
+  <div class="field">
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "수정하기", style:"width:125px; background-color: #79a54c;color:white;" %>
+  </div>
+<% end %>
+
+</div>

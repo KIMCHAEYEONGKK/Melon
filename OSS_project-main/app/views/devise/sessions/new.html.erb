@@ -1,0 +1,42 @@
+<div class="page_header" style="position: relative;width: 550px;margin: 0 auto;padding: 68px 0 42px;z-index: 20;text-align: center; margin-top:150px;">
+	<h1 style="display: inline-block;float: none;margin-top: 0;padding: 0;width: 206px;height: 56px;text-align: center;margin-right:175px;">
+		<img  style="width: 206px;aspect-ratio: auto 206 / 56; height: 56px; " src="https://cdnimg.melon.co.kr/resource/image/web/member/img_logo206x56.png">
+	</h1>
+</div>
+
+
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field" style="width: 550px;margin: 0 auto;padding: 0; margin-top:10px;">
+	  <div style="position: relative;margin: 0 auto;width: auto !important">
+		  
+    
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",style:"width:366px; height:49px;" %>
+ 
+    <%= f.password_field :password, autocomplete: "current-password" ,style:"width:366px; height:49px; padding-top:5px;"%>
+
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field" style="margin-top:5px;">
+      <%= f.check_box :remember_me, style:"float:left;" %>
+      <%= f.label :아이디저장 ,style:"float:left;"%>
+		 <%= render "devise/shared/sig_links" %>
+		<em style="color: #d9d9d9;font-style: normal;font-size: 11px;line-height: 14px;">|</em>
+		<%= render "devise/shared/forgot_password" %>
+    </div>
+  <% end %>
+
+  <div class="actions" style="float: none;width: auto;margin-top: 19px;padding-bottom: 15px;">
+    <%= f.submit "로그인", style:"display: block;
+    width: 384px;
+    background: #00cd3c;
+    padding: 17px 0 21px;
+    text-align: center;
+    color: #fff;
+    line-height: 22px;
+    font-size: 18px;" %>
+  </div>
+<%end%>
+	</div>
+</div>
+

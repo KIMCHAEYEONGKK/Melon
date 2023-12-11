@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  recommend: 1
+  flac: MyString
+  genre: MyString
+  lyrics: MyText
+  album: one
+
+two:
+  title: MyString
+  recommend: 1
+  flac: MyString
+  genre: MyString
+  lyrics: MyText
+  album: two

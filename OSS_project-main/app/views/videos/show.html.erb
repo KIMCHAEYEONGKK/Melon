@@ -1,0 +1,118 @@
+<p id="notice"><%= notice %></p>
+
+		<div class = "cont_wrap" style="margin:0 auto; background:0; zoom:1;">
+			<div class="cont_info" style="position: relative;width: 1008px;margin: 0 auto;padding: 0 20px;">
+				
+		
+		<div class="video" style="position: relative;z-index: 10;display: block;width: 1008px;min-height: 800px;padding: 29px 0 88px;zoom: 1;">
+			<div class="page_header" style="position:relative; margin-bottom:8px;">
+			<h2 style="height: 40px;line-height: 40px;font-size: 26px;">영상 정보
+			</h2>
+		</div>
+			<div style="width: 1008px;height: 568px;">
+				<% if @pay_t %>
+<iframe style="width:100%; height:100%;" src="<%= @video.link%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<% else %>
+<iframe style="width:100%; height:100%;" src="<%= @video.link%>?start=0&end=60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<% end %>
+				
+			</div>
+			<div class="video_info" style="margin-bottom:35px;">
+				<div class="header" style="position:relative; padding: 24px 0 22px; border-bottom:1px solid #e5e5e5;">
+					<h3 style="margin-right: 200px;line-height: 1.3em;color: #333;font-size: 24px;">
+						[MV]<%= @video.track.title %>
+					</h3>
+					<span style="display: inline-block;position: relative;top: 1px;width: 14px;height: 12px;background: url(//cdnimg.melon.co.kr/resource/image/web/common/bullet_icons_sprite_20201112.png) no-repeat -69px -15px;vertical-align: top;line-height: 0;font-size: 0;margin-top:20px;">
+									<span style="margin-left:30px;margin-top:20px;color: #888;line-height: 14px;font-size: 16px;letter-spacing: 0;vertical-align: top;"><%= @video.track.recommend %></span></span>
+				<div class="meta" style="position: absolute;right: 0;bottom: 25px;">
+					<span style="color: #606060;font-size: 16px;vertical-align: top;"><%= @video.track.album.release_day %></span>
+				</div>
+				</div>
+				<div class="vdo_artist" style="margin-top: 24px;">
+					<div class="thumb" style="float: left;width: 80px;height: 80px;border-radius: 100px;">
+						<span style="display: block;position: relative; font-size: 0;line-height: 0;color: #1a1a1a;text-decoration: none;">
+						<img style="border-radius: 100px;width: 80px;aspect-ratio: auto 80 / 80;height: 80px;" src="<%= @video.track.album.artist.link%>">
+							<span style="border-radius: 100px;"></span>
+						</span>
+					</div>
+					<div class="entry" style="float: left;padding: 18px 0 0 14px;">
+						<div class="artist">
+							<%=link_to @video.track.album.artist.activity_name , artist_path(@video.track.album.artist.id),style:"color: #00b423;font-size: 18px;" %>
+
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			
+</div>
+<div class="section_videoinfo">
+				<div class="header" style="position: relative;margin-bottom: 8px;">
+					<h5 style="height: 28px;line-height: 28px;font-size: 20px;">
+						비디오소개
+					</h5>
+				</div>
+	<div class="cont_info" style="position: relative;padding: 5px 0 45px;">
+		<div style="    height: 77px;line-height: 24px;color: #767676;font-size: 14px;overflow: hidden;">
+			<%= @video.intro%>
+		</div>
+	</div>
+			</div>
+
+
+<div class="section_movie" style="position: relative; margin-bottom: 35px;margin-top:50px;">
+					<div style="position: relative; margin-bottom: 8px;">
+						<h5 style="height: 28px;line-height: 28px;font-size: 20px;">관련 영상</h5>
+					
+				</div>
+					<div class="service_video_list">	
+						<ul style="margin: 0 0 0 -20px;display: block;">
+<% @tracks.each do |track| %>
+	<% if track.album.id == @video.track.album.id %>
+		<% @videos.each do |video| %>
+
+			<% if video.track.id == track.id %>
+				<% if video.id != @video.id %>
+					<% if @pay_t %>
+					<li style="width: 237px; margin: 0 0 0 20px;float: left;">
+									<iframe width="237" height="139" src="<%= video.link%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									<p style="font-size:14px;"> <%= link_to video.track.title, video_path(video.id)%></p>
+									<p style="font-size:14px;"> <%= link_to video.track.album.artist.activity_name, artist_path(video.track.album.artist.id), style:"color: #00b423;"%></p>
+										
+									<span style="display: inline-block;position: relative;top: 1px;width: 14px;height: 12px;background: url(//cdnimg.melon.co.kr/resource/image/web/common/bullet_icons_sprite_20201112.png) no-repeat -69px -15px;vertical-align: top;line-height: 0;font-size: 0;">
+										</span>	
+									<span style="color: #888;line-height: 14px;font-size: 12px;letter-spacing: 0;vertical-align: top;"><%=  video.track.recommend%></span>
+									</li>
+					<% else %>
+					<li style="width: 237px; margin: 0 0 0 20px;float: left;">
+									<iframe width="237" height="139" src="<%= video.link%>?start=0&end=60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									<p style="font-size:14px;"> <%= link_to video.track.title, video_path(video.id)%></p>
+									<p style="font-size:14px;"> <%= link_to video.track.album.artist.activity_name, artist_path(video.track.album.artist.id), style:"color: #00b423;"%></p>
+										
+									<span style="display: inline-block;position: relative;top: 1px;width: 14px;height: 12px;background: url(//cdnimg.melon.co.kr/resource/image/web/common/bullet_icons_sprite_20201112.png) no-repeat -69px -15px;vertical-align: top;line-height: 0;font-size: 0;">
+										</span>	
+									<span style="color: #888;line-height: 14px;font-size: 12px;letter-spacing: 0;vertical-align: top;"><%=  video.track.recommend%></span>
+									</li>
+					<%end%>
+				<%end %>
+			<%end %>			
+		<%end %>
+	<%end %>
+<%end %>
+							</ul>
+			</div>
+				<div class="page" style="position: absolute;top: 4px;right: 0;">
+					<span style="display: inline-block;margin-left: 3px;vertical-align: middle;">
+					<a style="float: left;margin-right: -1px;position: relative;width: 23px;height: 23px;border: 1px solid #ccc;">
+					<span style="top: 50%;left: 50%;width: 7px;height: 11px;margin: -6px 0 0 -3px;display: block;position: relative;
+background: url(//cdnimg.melon.co.kr/resource/image/web/common/button_icons_sprite_20200521.png) no-repeat -459px 0;font-size: 0;line-height: 0;background-position: -459px -14px;">이전</span>
+					</a>
+					<a style="position: relative;width: 23px;height: 23px;border: 1px solid #ccc;float: left;margin-right: 0;">
+					<span style="top: 50%;left: 50%;width: 7px;height: 11px;margin: -6px 0 0 -3px;display: block;position: relative;
+background: url(//cdnimg.melon.co.kr/resource/image/web/common/button_icons_sprite_20200521.png) no-repeat -459px 0;font-size: 0;line-height: 0;background-position: -469px -14px;">다음</span>
+					</a>
+						</span>
+				</div>
+		</div>
+</div>
+</div>

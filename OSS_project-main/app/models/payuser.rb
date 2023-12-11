@@ -1,0 +1,2 @@
+class Payuser < ApplicationRecord
+end

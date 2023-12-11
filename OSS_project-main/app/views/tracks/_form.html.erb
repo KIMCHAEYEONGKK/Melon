@@ -1,0 +1,52 @@
+<%= form_with(model: track, local: true) do |form| %>
+  <% if track.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(track.errors.count, "error") %> prohibited this track from being saved:</h2>
+
+      <ul>
+      <% track.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :recommend %>
+    <%= form.number_field :recommend %>
+  </div>
+
+  <div class="field">
+    <%= form.label :flac %>
+    <%= form.text_field :flac %>
+  </div>
+
+  <div class="field">
+    <%= form.label :genre %>
+    <%= form.text_field :genre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lyrics %>
+    <%= form.text_area :lyrics %>
+  </div>
+
+  <div class="field">
+    <%= form.label :album_id %>
+    <%= form.text_field :album_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :track_play %>
+    <%= form.text_field :track_play %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

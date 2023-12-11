@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Commend:</strong>
+  <%= @commend.commend %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @commend.user %>
+</p>
+
+<p>
+  <strong>Album:</strong>
+  <%= @commend.album %>
+</p>
+
+<%= link_to 'Edit', edit_commend_path(@commend) %> |
+<%= link_to 'Back', commends_path %>
